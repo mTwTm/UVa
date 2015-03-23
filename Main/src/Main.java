@@ -1,5 +1,3 @@
-package com.mtwtm.uva;
-
 import java.util.Scanner;
 
 public class Main {
