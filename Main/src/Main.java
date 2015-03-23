@@ -1,7 +1,7 @@
 // UVa 100 The 3n + 1 problem
-// Current Status: Pending
-// Last Submitted: NOTYET
-// Run Time: NOTYET
+// Current Status: Accepted
+// Last Submitted: 2015-03-23 08:23:30
+// Run Time: 1.668
 import java.util.Scanner;
 
 public class Main {
@@ -27,7 +27,19 @@ public class Main {
 			int i = s.nextInt();
 			int j = s.nextInt();
 			int maxCycle = 0;
-			for(int c = i ; c<=j ; c++)
+			int small;
+			int big;
+			if(i>j)
+			{
+				small = j;
+				big = i;
+			}
+			else
+			{
+				small = i;
+				big = j;
+			}
+			for(int c = small ; c<=big ; c++)
 			{
 				int result = calLength(c);
 				if(result>maxCycle)
