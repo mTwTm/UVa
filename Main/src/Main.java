@@ -1,7 +1,7 @@
-// UVa <ID> <Name> 
-// Current Status: Accepted|Pending|TooSlow
-// Last Submitted: 2015-03-23
-// Run Time: 0.775
+// UVa 100 The 3n + 1 problem
+// Current Status: Pending
+// Last Submitted: NOTYET
+// Run Time: NOTYET
 import java.util.Scanner;
 
 public class Main {
