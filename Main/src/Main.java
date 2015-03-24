@@ -3,24 +3,14 @@
 // Last Submitted: 2015-03-23
 // Run Time: 0.775
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Main {
 	
-	private List<LinkedListNode> blockStacks;
-	private int[] lookupWhichStack;
-	
-	
-	private class LinkedListNode
-	{
-		public LinkedListNode(int value)
-		{
-			this.value = value;
-		}
-		public int value;
-		public LinkedListNode next;
-	}
+	private List<List<Integer>> blockStacks;
 	
 	private void moveOnto(int from, int to){
 		
@@ -48,32 +38,29 @@ public class Main {
 		}
 	}
 	
-	private void printStack(LinkedListNode thisE)
+	private void printStack(List<Integer> list)
 	{
-		if(thisE == null)
-			return;
-		else
+		Iterator<Integer> i = list.iterator();
+		boolean first = true;
+		while(i.hasNext())
 		{
-			LinkedListNode nextE = thisE.next;
-			System.out.print(thisE.value);
-			if(nextE!=null)
-			{
+			if(!first)
 				System.out.print(" ");
-				printStack(nextE);				
-			}			
+			System.out.print(i.next());			
+			first = false;
 		}
 	}
 	
 	private void run()
 	{
 		Scanner s = new Scanner(System.in);
-		int blockCount = Integer.parseInt(s.nextLine());
-		blockStacks = new ArrayList<LinkedListNode>();
-		lookupWhichStack = new int[blockCount];
+		int blockCount = Integer.parseInt(s.nextLine());		
+		blockStacks = new ArrayList<List<Integer>>();
 		for(int i=0;i<blockCount;i++)
 		{
-			lookupWhichStack[i] = i;
-			blockStacks.add(new LinkedListNode(i));
+			LinkedList<Integer> next = new LinkedList<Integer>();
+			next.add(i);
+			blockStacks.add(next);
 		}
 		while(s.hasNextLine())
 		{			
