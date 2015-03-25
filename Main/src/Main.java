@@ -45,10 +45,17 @@ public class Main {
 		{
 			while(it.hasPrevious())
 			{
-				if(it.previous()==to)
+				int prev = it.previous();
+				if(prev==to)
 				{
 					it.next();
 					break;
+				}
+				else
+				{
+					box2stacklookup[prev] = prev;
+					blockStacks.get(prev).add(prev);
+					it.remove();
 				}
 			}
 		}
