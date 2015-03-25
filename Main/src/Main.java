@@ -6,26 +6,73 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Scanner;
 
 public class Main {
 	
 	private List<List<Integer>> blockStacks;
+	private int[] box2stacklookup;		
 	
-	private void moveOnto(int from, int to){
-		
+	private List<Integer> pile(int from, boolean move)
+	{
+		List<Integer> removed = new ArrayList<Integer>();
+		List<Integer> fromStack = blockStacks.get(box2stacklookup[from]);
+		ListIterator<Integer> it = fromStack.listIterator();		
+		while(it.hasNext())
+		{
+			if(it.next()==from)
+				break;
+		}
+		removed.add(from);
+		it.remove();
+		if(!move)
+		{
+			while(it.hasNext())
+			{
+				removed.add(it.next());
+				it.remove();
+			}		
+		}
+		return removed;
+	}
+	
+	private void over(List<Integer> insert, int to, boolean onto)
+	{
+		List<Integer> toStack = blockStacks.get(box2stacklookup[to]);		
+		ListIterator<Integer> it = toStack.listIterator(toStack.size());
+		if(onto)
+		{
+			while(it.hasPrevious())
+			{
+				if(it.previous()==to)
+				{
+					it.next();
+					break;
+				}
+			}
+		}
+		for(int insertElement : insert)
+		{
+			it.add(insertElement);
+			box2stacklookup[insertElement] = box2stacklookup[to];
+		}
+	}
+	
+	private void moveOnto(int from, int to){		
+		over(pile(from, false), to, false);		
 	}
 	
 	private void moveOver(int from, int to){
-		
+		over(pile(from, false), to, true);
 	}
 
 	private void pileOnto(int from, int to){
-	
+		over(pile(from, true), to, false);
 	}
 	
 	private void pileOver(int from, int to){
-		
+		over(pile(from, true), to, true);
 	}
 	
 	private void printStacks()
@@ -56,11 +103,13 @@ public class Main {
 		Scanner s = new Scanner(System.in);
 		int blockCount = Integer.parseInt(s.nextLine());		
 		blockStacks = new ArrayList<List<Integer>>();
+		box2stacklookup = new int[blockCount];
 		for(int i=0;i<blockCount;i++)
 		{
 			LinkedList<Integer> next = new LinkedList<Integer>();
 			next.add(i);
 			blockStacks.add(next);
+			box2stacklookup[i] = i;
 		}
 		while(s.hasNextLine())
 		{			
