@@ -99,51 +99,54 @@ public class Main {
 	private void run()
 	{
 		Scanner s = new Scanner(System.in);
-		int blockCount = Integer.parseInt(s.nextLine());		
-		blockStacks = new ArrayList<List<Integer>>();
-		box2stacklookup = new int[blockCount];
-		for(int i=0;i<blockCount;i++)
-		{
-			LinkedList<Integer> next = new LinkedList<Integer>();
-			next.add(i);
-			blockStacks.add(next);
-			box2stacklookup[i] = i;
-		}
 		while(s.hasNextLine())
-		{			
-			String nextCmd = s.nextLine();
-			if(nextCmd.equals("quit"))
-				break;
-			String[] nextCmdSplit = nextCmd.split("\\s");
-			if(box2stacklookup[Integer.parseInt(nextCmdSplit[1])]==box2stacklookup[Integer.parseInt(nextCmdSplit[3])])
-				continue;
-			switch(nextCmdSplit[0])
+		{
+			int blockCount = Integer.parseInt(s.nextLine());		
+			blockStacks = new ArrayList<List<Integer>>();
+			box2stacklookup = new int[blockCount];
+			for(int i=0;i<blockCount;i++)
 			{
-				case "move":
-					switch(nextCmdSplit[2])
-					{
-						case "onto":
-							moveOnto(Integer.parseInt(nextCmdSplit[1]), Integer.parseInt(nextCmdSplit[3]));
-							break;
-						case "over":
-							moveOver(Integer.parseInt(nextCmdSplit[1]), Integer.parseInt(nextCmdSplit[3]));
-							break;
-					}
+				LinkedList<Integer> next = new LinkedList<Integer>();
+				next.add(i);
+				blockStacks.add(next);
+				box2stacklookup[i] = i;
+			}
+			while(s.hasNextLine())
+			{			
+				String nextCmd = s.nextLine();
+				if(nextCmd.equals("quit"))
 					break;
-				case "pile":
-					switch(nextCmdSplit[2])
-					{
-						case "onto":
-							pileOnto(Integer.parseInt(nextCmdSplit[1]), Integer.parseInt(nextCmdSplit[3]));
-							break;
-						case "over":
-							pileOver(Integer.parseInt(nextCmdSplit[1]), Integer.parseInt(nextCmdSplit[3]));
-							break;
-					}
-					break;
-			}			
-		}		
-		printStacks();
+				String[] nextCmdSplit = nextCmd.split("\\s");
+				if(box2stacklookup[Integer.parseInt(nextCmdSplit[1])]==box2stacklookup[Integer.parseInt(nextCmdSplit[3])])
+					continue;
+				switch(nextCmdSplit[0])
+				{
+					case "move":
+						switch(nextCmdSplit[2])
+						{
+							case "onto":
+								moveOnto(Integer.parseInt(nextCmdSplit[1]), Integer.parseInt(nextCmdSplit[3]));
+								break;
+							case "over":
+								moveOver(Integer.parseInt(nextCmdSplit[1]), Integer.parseInt(nextCmdSplit[3]));
+								break;
+						}
+						break;
+					case "pile":
+						switch(nextCmdSplit[2])
+						{
+							case "onto":
+								pileOnto(Integer.parseInt(nextCmdSplit[1]), Integer.parseInt(nextCmdSplit[3]));
+								break;
+							case "over":
+								pileOver(Integer.parseInt(nextCmdSplit[1]), Integer.parseInt(nextCmdSplit[3]));
+								break;
+						}
+						break;
+				}			
+			}		
+			printStacks();
+		}
 		s.close();		
 	}
 	
