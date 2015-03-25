@@ -1,7 +1,7 @@
 // UVa 101 The Blocks Problem
-// Current Status: Wrong Answer
-// Last Submitted: 2015-03-25 08:03:18
-// Run Time: 0.955
+// Current Status: Accepted
+// Last Submitted: 2015-03-25 10:47:17
+// Run Time: 0.945
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
