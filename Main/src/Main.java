@@ -14,7 +14,7 @@ public class Main {
 	private List<List<Integer>> blockStacks;
 	private int[] box2stacklookup;		
 	
-	private List<Integer> pile(int from, boolean move)
+	private List<Integer> pile(int from, boolean pile)
 	{
 		List<Integer> removed = new ArrayList<Integer>();
 		List<Integer> fromStack = blockStacks.get(box2stacklookup[from]);
@@ -26,7 +26,7 @@ public class Main {
 		}
 		removed.add(from);
 		it.remove();
-		if(!move)
+		if(pile)
 		{
 			while(it.hasNext())
 			{
@@ -37,11 +37,11 @@ public class Main {
 		return removed;
 	}
 	
-	private void over(List<Integer> insert, int to, boolean onto)
+	private void over(List<Integer> insert, int to, boolean over)
 	{
 		List<Integer> toStack = blockStacks.get(box2stacklookup[to]);		
 		ListIterator<Integer> it = toStack.listIterator(toStack.size());
-		if(onto)
+		if(!over)
 		{
 			while(it.hasPrevious())
 			{
