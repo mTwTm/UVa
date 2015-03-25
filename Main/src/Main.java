@@ -25,15 +25,19 @@ public class Main {
 				break;
 		}
 		removed.add(from);
-		it.remove();
-		if(pile)
+		it.remove();		
+		while(it.hasNext())
 		{
-			while(it.hasNext())
+			int next = it.next();
+			if(pile)
+				removed.add(next);
+			else
 			{
-				removed.add(it.next());
-				it.remove();
-			}		
-		}
+				box2stacklookup[next] = next;
+				blockStacks.get(next).add(next);
+			}
+			it.remove();
+		}		
 		return removed;
 	}
 	
