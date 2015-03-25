@@ -79,7 +79,7 @@ public class Main {
 	{
 		for(int i=0; i<blockStacks.size() ;i++)
 		{
-			System.out.print(i+": ");
+			System.out.print(i+":");
 			printStack(blockStacks.get(i));
 			System.out.println();
 		}
@@ -88,13 +88,10 @@ public class Main {
 	private void printStack(List<Integer> list)
 	{
 		Iterator<Integer> i = list.iterator();
-		boolean first = true;
 		while(i.hasNext())
 		{
-			if(!first)
 				System.out.print(" ");
 			System.out.print(i.next());			
-			first = false;
 		}
 	}
 	
@@ -114,6 +111,8 @@ public class Main {
 		while(s.hasNextLine())
 		{			
 			String nextCmd = s.nextLine();
+			if(nextCmd.equals("quit"))
+				break;
 			String[] nextCmdSplit = nextCmd.split("\\s");
 			switch(nextCmdSplit[0])
 			{
@@ -140,9 +139,8 @@ public class Main {
 					}
 					break;
 			}
-			printStacks();
 		}
-		//printStacks();
+		printStacks();
 		s.close();
 	}
 	
