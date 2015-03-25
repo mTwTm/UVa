@@ -79,8 +79,6 @@ public class Main {
 	{
 		for(int i=0; i<blockStacks.size() ;i++)
 		{
-			if(i<10)
-				System.out.print(" "); //Align
 			System.out.print(i+":");
 			printStack(blockStacks.get(i));
 			if(i!=blockStacks.size()-1)
