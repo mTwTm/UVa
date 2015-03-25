@@ -59,7 +59,7 @@ public class Main {
 		}
 	}
 	
-	private void moveOnto(int from, int to){		
+	private void moveOnto(int from, int to){
 		over(pile(from, false), to, false);		
 	}
 	
@@ -117,6 +117,8 @@ public class Main {
 			if(nextCmd.equals("quit"))
 				break;
 			String[] nextCmdSplit = nextCmd.split("\\s");
+			if(box2stacklookup[Integer.parseInt(nextCmdSplit[1])]==box2stacklookup[Integer.parseInt(nextCmdSplit[3])])
+				continue;
 			switch(nextCmdSplit[0])
 			{
 				case "move":
@@ -141,10 +143,10 @@ public class Main {
 							break;
 					}
 					break;
-			}
-			printStacks();
-		}
-		s.close();
+			}			
+		}		
+		printStacks();
+		s.close();		
 	}
 	
 	public static void main(String[] args) {
