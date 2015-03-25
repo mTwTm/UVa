@@ -81,7 +81,7 @@ public class Main {
 		{
 			System.out.print(i+":");
 			printStack(blockStacks.get(i));
-			if(i!=blockStacks.size()-1)
+			//if(i!=blockStacks.size()-1)
 				System.out.println();
 		}
 	}
@@ -143,8 +143,8 @@ public class Main {
 								break;
 						}
 						break;
-				}			
-			}		
+				}				
+			}	
 			printStacks();
 		}
 		s.close();		
