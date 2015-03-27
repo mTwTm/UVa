@@ -1,5 +1,5 @@
 // UVa 102 Ecological Bin Packing 
-// Current Status: Pending
+// Current Status: Ready
 // Last Submitted: 2015-03-27
 // Run Time: 
 // Concept: Permutation is O(n!) but is worth a try with n = 3
@@ -9,29 +9,39 @@ public class Main {
 	
 	public static void main(String[] args) {
 		Scanner s = new Scanner(System.in);
-		int[][] bin = new int[3][];
-		int[] sum = new int[3];
-		int[] max = new int[3];
-		for(int i=0;i<3;i++)
-			bin[i] = new int[2];
-		/*String st = "1234"; //Test Permutation
-		while(nextPerm(st)!=null)
-		{
-			st = nextPerm(st);
-			System.out.println(st);
-		}*/
+		int[][] bin;
+		int[] sum;
+		int sumAll;		
 		while(s.hasNextInt())
 		{
+			sumAll = 0;
+			bin = new int[3][];
+			sum = new int[3];
+			for(int i=0;i<3;i++)
+				bin[i] = new int[3];
 			for(int i=0;i<3;i++)
 			{
 				for(int j=0;j<3;j++)
 				{										
 					bin[i][j] = s.nextInt();					
 					sum[i] += bin[i][j];
-					if(bin[i][j]>max[i])
-						max[i] = bin[i][j]; 
+					sumAll += bin[i][j];
 				}
-			}			
+			} 
+			String comb = "BCG";
+			String ans = null;
+			int ansNum = sumAll;
+			while(comb!=null)
+			{
+				int sumThis = sumAll - bin[comb.indexOf('B')][0] - bin[comb.indexOf('C')][2] - bin[comb.indexOf('G')][1];
+				if(sumThis<ansNum)
+				{
+					ans = comb;
+					ansNum = sumThis;
+				}
+				comb = nextPerm(comb);
+			}
+			System.out.println(ans+" "+ansNum);
 		}
 		s.close();
 	}
