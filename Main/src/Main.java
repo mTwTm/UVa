@@ -1,7 +1,7 @@
 // UVa 111 History Grading 
-// Current Status: Accepted|Pending|TooSlow
-// Last Submitted: 2015-03-27
-// Run Time: 0.775
+// Current Status: Accepted
+// Last Submitted: 2015-03-27 12:49:28
+// Run Time: 0.866
 // Obviously LCS
 import java.util.Scanner;
 
