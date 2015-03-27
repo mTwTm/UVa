@@ -1,7 +1,7 @@
-// UVa <ID> <Name> 
-// Current Status: Accepted|Pending|TooSlow
-// Last Submitted: 2015-03-23
-// Run Time: 0.775
+// UVa 102 Ecological Bin Packing 
+// Current Status: Pending
+// Last Submitted: 2015-03-27
+// Run Time: 
 import java.util.Scanner;
 
 public class Main {
