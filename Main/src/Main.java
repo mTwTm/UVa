@@ -1,7 +1,7 @@
 // UVa 102 Ecological Bin Packing 
-// Current Status: Ready
-// Last Submitted: 2015-03-27
-// Run Time: 
+// Current Status: Accepted
+// Last Submitted: 2015-03-27 08:18:56
+// Run Time: 1.995
 // Concept: Permutation is O(n!) but is worth a try with n = 3
 import java.util.Scanner;
 
