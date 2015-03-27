@@ -1,6 +1,6 @@
-// UVa <ID> <Name> 
+// UVa 111 History Grading 
 // Current Status: Accepted|Pending|TooSlow
-// Last Submitted: 2015-03-23
+// Last Submitted: 2015-03-27
 // Run Time: 0.775
 import java.util.Scanner;
 
