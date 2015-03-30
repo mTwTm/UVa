@@ -1,7 +1,7 @@
 // UVa 120 Stacks of Flapjacks
-// Current Status: Accepted|Pending|TooSlow
-// Last Submitted: 2015-03-23
-// Run Time: 0.775
+// Current Status: Accepted
+// Last Submitted: 2015-03-30 14:18:34
+// Run Time: 1.219
 
 import java.util.ArrayList;
 import java.util.Collections;
