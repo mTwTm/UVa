@@ -69,8 +69,12 @@ public class Main {
 			printSigned(2*k);
 			System.out.print("y ");
 		}
-		printSigned(-h*h-k*k+r*r);
-		System.out.println(" = 0");
+		if(!String.format("%.3f", Math.abs(-h*h-k*k+r*r)).equals("0.000"))
+		{
+			printSigned(-h*h-k*k+r*r);
+			System.out.print(" ");
+		}		
+		System.out.println("= 0");
 	}
 	
 	private void run(){
