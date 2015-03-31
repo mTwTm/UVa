@@ -33,30 +33,54 @@ public class Main {
 	
 	private void printResult()
 	{
-		System.out.print("(x ");
-		printSigned(h);
-		System.out.print(")^2 + (y ");
-		printSigned(k);
-		System.out.print(")^2 = ");
-		printfix3(r);
-		System.out.println("^2");
+		if(String.format("%.3f", Math.abs(h)).equals("0.000"))
+		{
+			System.out.print("x");
+		}
+		else
+		{
+			System.out.print("(x ");
+			printSigned(h);
+			System.out.print(")");
+		}
+			System.out.print("^2 + ");
+		if(String.format("%.3f", Math.abs(k)).equals("0.000"))
+		{
+			System.out.print("y");
+		}
+		else
+		{
+			System.out.print("(y ");
+			printSigned(k);
+			System.out.print(")");
+		}
+			System.out.print("^2 = ");
+			printfix3(r);
+			System.out.println("^2");
+		
 		System.out.print("x^2 + y^2 ");
-		printSigned(2*h);
-		System.out.print("x ");
-		printSigned(2*k);
-		System.out.print("y ");
+		if(!String.format("%.3f", Math.abs(h)).equals("0.000"))
+		{
+			printSigned(2*h);
+			System.out.print("x ");
+		}
+		if(!String.format("%.3f", Math.abs(k)).equals("0.000"))
+		{
+			printSigned(2*k);
+			System.out.print("y ");
+		}
 		printSigned(-h*h-k*k+r*r);
 		System.out.println(" = 0");
 	}
 	
 	private void run(){
-		boolean first = true;
+		//boolean first = true;
 		Scanner s = new Scanner(System.in);
 		while(s.hasNextDouble())
 		{
-			if(!first)
+			//if(!first)
 				System.out.println();
-			first = false;
+			//first = false;
 			double[] pointsX = new double[count];
 			double[] pointsY = new double[count];
 			for(int i=0;i<count;i++)
