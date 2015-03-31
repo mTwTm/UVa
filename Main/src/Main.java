@@ -73,7 +73,11 @@ public class Main {
 		{
 			printSigned(-h*h-k*k+r*r);
 			System.out.print(" ");
-		}		
+		}
+		else
+		{
+			System.out.print("+ 0.000 ")
+		}
 		System.out.println("= 0");
 	}
 	
