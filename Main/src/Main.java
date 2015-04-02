@@ -1,4 +1,4 @@
-// UVa <ID> <Name> 
+// UVa 272 TEX Quotes 
 // Current Status: Accepted|Pending|TooSlow
 // Last Submitted: 
 // Run Time: 
