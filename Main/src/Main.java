@@ -1,15 +1,11 @@
-// UVa <ID> <Name> 
-// Current Status: Accepted|Pending|TooSlow
-// Last Submitted: 
-// Run Time: 
+// UVa 294 Divisors 
+// Current Status: Accepted
+// Last Submitted: 2015-04-02 12:46:48 
+// Run Time: 0.352
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Scanner;
-import java.util.TreeMap;
 
 public class Main {
 	
