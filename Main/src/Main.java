@@ -1,11 +1,15 @@
 // UVa 333 Recognizing Good ISBNs
-// Current Status: Accepted|Pending|TooSlow
-// Last Submitted: 
-// Run Time: 
+// Current Status: Accepted
+// Last Submitted: 2015-04-03 07:06:00 
+// Run Time: 0.575
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Main {
 	
@@ -39,18 +43,34 @@ public class Main {
 	}
 	
 	private void run(){
-		Scanner s = new Scanner(System.in);
-		while(s.hasNext())
-		{
-			boolean correct = true;
-			String isbn = s.next();
-			correct = validate(isbn);
-			System.out.print(isbn + " is ");
-			if(!correct)
-				System.out.print("in");
-			System.out.println("correct.");
+//		Scanner s = new Scanner(System.in);
+		String isbn;
+		BufferedReader bfr = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bfw = new BufferedWriter(new OutputStreamWriter(System.out));  
+		try {
+			while((isbn = bfr.readLine()) != null)
+			{
+				isbn = isbn.trim();
+				boolean correct = true;
+				correct = validate(isbn);
+				bfw.write(isbn + " is ");
+				if(!correct)
+					bfw.write("in");
+				bfw.write("correct.");
+				bfw.newLine();
+			}
+		} catch (IOException e) {
+			isbn = null;
+			e.printStackTrace();
 		}
-		s.close();
+		//s.close();
+		try {
+			bfr.close();
+			bfw.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public static void main(String[] args) {
