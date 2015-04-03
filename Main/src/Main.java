@@ -1,4 +1,4 @@
-// UVa <ID> <Name> 
+// UVa 333 Recognizing Good ISBNs
 // Current Status: Accepted|Pending|TooSlow
 // Last Submitted: 
 // Run Time: 
