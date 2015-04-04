@@ -8,20 +8,22 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.util.Scanner;
 
 public class Main {
 	
+	private BufferedReader r; 
+	private BufferedWriter w;
+	
 	private void run(){
 		
-		BufferedReader r = new BufferedReader(new InputStreamReader(System.in)); 
-		BufferedWriter w = new BufferedWriter(new OutputStreamWriter(System.out));
-		Scanner s = new Scanner(r);
+		r = new BufferedReader(new InputStreamReader(System.in)); 
+		w = new BufferedWriter(new OutputStreamWriter(System.out));
+	
 		try{
-			while( s.hasNextLine() )
+			String nextLine;
+			while( ( nextLine = r.readLine() ) != null )
 			{
-				String line = s.nextLine();
-				w.write(line);
+				w.write(nextLine);
 			}
 			r.close();
 			w.close();
