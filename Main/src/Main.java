@@ -1,7 +1,7 @@
-// UVa <ID> <Name> 
-// Current Status: Accepted|Pending|TooSlow
-// Last Submitted: 
-// Run Time: 
+// UVa 344 Roman Digititis 
+// Current Status: Accepted
+// Last Submitted: 2015-04-04 08:51:22 
+// Run Time: 0.192
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
