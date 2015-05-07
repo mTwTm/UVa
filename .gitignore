@@ -1,4 +1,0 @@
-#Eclipse metadata and other project related files
-.metadata/
-Main/*
-!Main/src/
