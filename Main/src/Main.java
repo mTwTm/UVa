@@ -1,4 +1,4 @@
-// UVa <ID> <Name> 
+// UVa 357 Let Me Count The Ways
 // Current Status: Accepted|Pending|TooSlow
 // Last Submitted: 
 // Run Time: 
@@ -10,7 +10,6 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
 public class Main {
-	
 	private BufferedReader r; 
 	private BufferedWriter w;
 	
