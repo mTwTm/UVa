@@ -1,7 +1,7 @@
 // UVa 357 Let Me Count The Ways
-// Current Status: Accepted|Pending|TooSlow
-// Last Submitted: 
-// Run Time: 
+// Current Status: Accepted
+// Last Submitted: 2015-05-08 03:39:24
+// Run Time: 0.595
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -20,9 +20,9 @@ public class Main {
 
         r = new BufferedReader(new InputStreamReader(System.in));
         w = new BufferedWriter(new OutputStreamWriter(System.out));
-        int[][] ways = new int[coins.length][];
+        long[][] ways = new long[coins.length][];
         for(int i=0;i<coins.length;i++)
-            ways[i] = new int[max / coins[1] + 1];
+            ways[i] = new long[max / coins[1] + 1];
         for (int i = 0; i <= max; i += coins[1]) {
             ways[0][i / coins[1]] = 1;
             for (int j = 1; j < ways.length; j++) {
