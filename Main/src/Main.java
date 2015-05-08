@@ -1,4 +1,4 @@
-// UVa <ID> <Name> 
+// UVa 382 Perfection
 // Current Status: Accepted|Pending|TooSlow
 // Last Submitted: 
 // Run Time: 
