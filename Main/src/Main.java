@@ -1,4 +1,4 @@
-// UVa <ID> <Name> 
+// UVa 369 Combinations
 // Current Status: Accepted|Pending|TooSlow
 // Last Submitted: 
 // Run Time: 
