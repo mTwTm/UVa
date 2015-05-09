@@ -1,13 +1,14 @@
 // UVa 424 Integer Inquiry
-// Current Status: Accepted|Pending|TooSlow
-// Last Submitted: 
-// Run Time: 
+// Current Status: Accepted
+// Last Submitted: 2015-05-09 13:32:15
+// Run Time: 0.238
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.math.BigInteger;
 
 public class Main {
 	
@@ -21,10 +22,15 @@ public class Main {
 	
 		try{
 			String nextLine;
+			BigInteger sum = BigInteger.ZERO;
 			while( ( nextLine = r.readLine() ) != null )
 			{
-				w.write(nextLine);
+				BigInteger next = new BigInteger(nextLine);
+				if(next.equals(BigInteger.ZERO))
+					break;
+				sum = sum.add(next);
 			}
+			w.write(sum + "\n");
 			r.close();
 			w.close();
 		}
