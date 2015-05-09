@@ -1,4 +1,4 @@
-// UVa <ID> <Name> 
+// UVa 414 Machined Surfaces
 // Current Status: Accepted|Pending|TooSlow
 // Last Submitted: 
 // Run Time: 
