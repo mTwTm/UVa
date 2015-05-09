@@ -1,4 +1,4 @@
-// UVa <ID> <Name> 
+// UVa 424 Integer Inquiry
 // Current Status: Accepted|Pending|TooSlow
 // Last Submitted: 
 // Run Time: 
