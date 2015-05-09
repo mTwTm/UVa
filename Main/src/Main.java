@@ -1,4 +1,4 @@
-// UVa <ID> <Name> 
+// UVa 439 Knight Moves
 // Current Status: Accepted|Pending|TooSlow
 // Last Submitted: 
 // Run Time: 
