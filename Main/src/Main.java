@@ -1,7 +1,7 @@
 // UVa 414 Machined Surfaces
-// Current Status: Accepted|Pending|TooSlow
-// Last Submitted: 
-// Run Time: 
+// Current Status: Accepted
+// Last Submitted: 2015-05-09 08:55:50
+// Run Time: 0.176
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -23,7 +23,27 @@ public class Main {
 			String nextLine;
 			while( ( nextLine = r.readLine() ) != null )
 			{
-				w.write(nextLine);
+				int size = Integer.parseInt(nextLine.trim());
+				if(size == 0)
+					break;
+				int min = 25;
+				int holes = 0;
+				for(int i=0 ; i<size ; i++) {
+					nextLine = r.readLine().trim();
+					int count = 0;
+					for(int j=0 ; j<nextLine.length() ; j++) {
+						if(nextLine.charAt(j)==' ')
+							count++;
+					}
+					if(count < min) {
+						holes += i * (min - count);
+						min = count;
+					}
+					else {
+						holes += count - min;
+					}
+				}
+				w.write(holes+"\n");
 			}
 			r.close();
 			w.close();
