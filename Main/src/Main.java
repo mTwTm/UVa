@@ -1,4 +1,4 @@
-// UVa <ID> <Name> 
+// UVa 458 The Decoder
 // Current Status: Accepted|Pending|TooSlow
 // Last Submitted: 
 // Run Time: 
