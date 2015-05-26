@@ -1,4 +1,4 @@
-// UVa <ID> <Name> 
+// UVa 477 Points in Figures: Rectangles and Circles
 // Current Status: Accepted|Pending|TooSlow
 // Last Submitted: 
 // Run Time: 
