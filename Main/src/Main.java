@@ -1,5 +1,5 @@
-// UVa <ID> <Name> 
-// Current Status: Accepted|Pending|TooSlow
+// UVa 476 Points in Figures: Rectangles
+// Current Status: Accepted
 // Last Submitted: 2015-05-26 13:05:20
 // Run Time: 0.915
 
