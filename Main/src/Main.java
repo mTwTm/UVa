@@ -1,43 +1,40 @@
-// UVa <ID> <Name> 
-// Current Status: Accepted|Pending|TooSlow
-// Last Submitted: 
-// Run Time: 
+// UVa 483 Word Scramble
+// Current Status: Accepted
+// Last Submitted: 2015-05-27 07:56:16
+// Run Time: 0.305
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+import java.util.Scanner;
 
-public class Main {
-	
-	private BufferedReader r; 
-	private BufferedWriter w;
-	
-	private void run(){
-		
-		r = new BufferedReader(new InputStreamReader(System.in)); 
-		w = new BufferedWriter(new OutputStreamWriter(System.out));
-	
-		try{
-			String nextLine;
-			while( ( nextLine = r.readLine() ) != null )
-			{
-				w.write(nextLine);
-			}
-			r.close();
-			w.close();
-		}
-		catch(IOException ex)
-		{
-			//Nothing to do
-		}
-		
-	}
-	
+
+class Main {
+
+	/**
+	 * @param args
+	 */
 	public static void main(String[] args) {
-		Main myself = new Main();
-		myself.run();
+		Scanner S = new Scanner(System.in);
+		String line;
+		String buffer;
+		while(S.hasNextLine())
+		{
+			line = S.nextLine();
+			buffer = "";
+			for(int i=0;i<line.length();i++)
+			{
+				if((""+line.charAt(i)).matches("\\s"))
+				{
+					for(int j=buffer.length()-1;j>=0;j--)
+						System.out.print(buffer.charAt(j));
+					buffer = "";
+					System.out.print(line.charAt(i));
+				}
+				else
+					buffer+=line.charAt(i);
+			}
+			for(int j=buffer.length()-1;j>=0;j--)
+				System.out.print(buffer.charAt(j));
+			System.out.println();
+		}
 	}
-	
+
 }
