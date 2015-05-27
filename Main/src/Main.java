@@ -1,4 +1,4 @@
-// UVa <ID> <Name> 
+// UVa 488 Triangle Wave
 // Current Status: Accepted|Pending|TooSlow
 // Last Submitted: 
 // Run Time: 
