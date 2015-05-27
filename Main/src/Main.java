@@ -1,4 +1,4 @@
-// UVa <ID> <Name> 
+// UVa 492 Pig-Latin
 // Current Status: Accepted|Pending|TooSlow
 // Last Submitted: 
 // Run Time: 
