@@ -1,13 +1,15 @@
-// UVa <ID> <Name> 
-// Current Status: Accepted|Pending|TooSlow
-// Last Submitted: 
-// Run Time: 
+// UVa 484 The Department of Redundancy Department
+// Current Status: Accepted
+// Last Submitted: 2015-05-27 08:38:13
+// Run Time: 0.612
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class Main {
 	
@@ -21,10 +23,18 @@ public class Main {
 	
 		try{
 			String nextLine;
+			Map<Integer, Integer> departments = new LinkedHashMap<>();
 			while( ( nextLine = r.readLine() ) != null )
 			{
-				w.write(nextLine);
+				nextLine = nextLine.trim();
+				String[] things = nextLine.split("\\s+");
+				for(String next : things) {
+					int val = Integer.parseInt(next);
+						departments.put(val, departments.containsKey(val) ? departments.get(val)+1 : 1);
+				}
 			}
+			for(Map.Entry next: departments.entrySet())
+				w.write(next.getKey() + " " +next.getValue() + "\n");
 			r.close();
 			w.close();
 		}
