@@ -1,43 +1,46 @@
-// UVa <ID> <Name> 
-// Current Status: Accepted|Pending|TooSlow
-// Last Submitted: 
-// Run Time: 
+// UVa 499 What's The Frequency, Kenneth?
+// Current Status: Accepted
+// Last Submitted: 2015-05-28 07:58:08
+// Run Time: 0.259
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+import java.util.Scanner;
 
-public class Main {
-	
-	private BufferedReader r; 
-	private BufferedWriter w;
-	
-	private void run(){
-		
-		r = new BufferedReader(new InputStreamReader(System.in)); 
-		w = new BufferedWriter(new OutputStreamWriter(System.out));
-	
-		try{
-			String nextLine;
-			while( ( nextLine = r.readLine() ) != null )
-			{
-				w.write(nextLine);
-			}
-			r.close();
-			w.close();
-		}
-		catch(IOException ex)
-		{
-			//Nothing to do
-		}
-		
-	}
-	
+
+class Main {
+
 	public static void main(String[] args) {
-		Main myself = new Main();
-		myself.run();
+		Scanner s;
+		s = new Scanner(System.in);
+		while(s.hasNextLine())
+		{
+			String line = s.nextLine();
+			int[] letterCount = new int[52];
+			for(int i=0;i<line.length();i++)
+			{
+				char next = line.charAt(i);
+				if(next<='z'&&next>='a')
+					letterCount[next-'a'+26]++;
+				if(next<='Z'&&next>='A')
+					letterCount[next-'A']++;
+			}
+			int most = 0;
+			for(int i=0;i<letterCount.length;i++)
+			{
+				if(letterCount[i]>most)
+					most = letterCount[i];
+			}
+			for(int i=0;i<letterCount.length;i++)
+			{
+				if(letterCount[i]==most)
+				{
+					if(i<=25)
+						System.out.print((char)(i+'A'));
+					else
+						System.out.print((char)(i+'a'-26));
+				}
+			}
+			System.out.println(" "+most);
+		}
+		s.close();
 	}
-	
 }
