@@ -1,4 +1,4 @@
-// UVa <ID> <Name> 
+// UVa 494 Kindergarten Counting Game
 // Current Status: Accepted|Pending|TooSlow
 // Last Submitted: 
 // Run Time: 
