@@ -15,11 +15,11 @@ public class Main {
 	private BufferedWriter w;
 	
 	private void run(){
-		
-		r = new BufferedReader(new InputStreamReader(System.in)); 
-		w = new BufferedWriter(new OutputStreamWriter(System.out));
-	
+
 		try{
+
+			r = new BufferedReader(new InputStreamReader(System.in, "ISO-8859-1"));
+			w = new BufferedWriter(new OutputStreamWriter(System.out, "ISO-8859-1"));
 			String nextLine;
 			while( ( nextLine = r.readLine() ) != null )
 			{
