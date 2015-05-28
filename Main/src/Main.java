@@ -1,7 +1,7 @@
 // UVa 494 Kindergarten Counting Game
-// Current Status: Accepted|Pending|TooSlow
-// Last Submitted: 
-// Run Time: 
+// Current Status: Accepted
+// Last Submitted: 2015-05-28 05:38:50
+// Run Time: 0.192
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -23,7 +23,8 @@ public class Main {
 			String nextLine;
 			while( ( nextLine = r.readLine() ) != null )
 			{
-				w.write(nextLine);
+				String[] split = nextLine.split("[a-zA-z]+");
+				w.write(split.length-1+"\n");
 			}
 			r.close();
 			w.close();
