@@ -1,43 +1,34 @@
-// UVa <ID> <Name> 
-// Current Status: Accepted|Pending|TooSlow
-// Last Submitted: 
-// Run Time: 
+// UVa 640 Self Numbers
+// Current Status: Accepted
+// Last Submitted: 2015-06-02 11:02:40
+// Run Time: 2.046
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+import java.util.PriorityQueue;
 
-public class Main {
-	
-	private BufferedReader r; 
-	private BufferedWriter w;
-	
-	private void run(){
+class Main {
 
-		try{
-
-			r = new BufferedReader(new InputStreamReader(System.in, "ISO-8859-1"));
-			w = new BufferedWriter(new OutputStreamWriter(System.out, "ISO-8859-1"));
-			String nextLine;
-			while( ( nextLine = r.readLine() ) != null )
-			{
-				w.write(nextLine);
-			}
-			r.close();
-			w.close();
-		}
-		catch(IOException ex)
-		{
-			//Nothing to do
-		}
-		
-	}
-	
 	public static void main(String[] args) {
-		Main myself = new Main();
-		myself.run();
+		PriorityQueue<Integer> selfNumber = new PriorityQueue<Integer>();
+		for(int i=1;i<=1000000;i++){
+			int sum=i;
+			int temp = i;
+			while(temp!=0)
+			{
+				sum+=temp%10;
+				temp/=10;
+			}
+			selfNumber.add(sum);
+		}
+		int next = selfNumber.poll();
+		for(int i=1;i<=1000000;i++){
+			if(next>i)
+				System.out.println(i);
+			else
+			{
+				while(next==i)
+					next = selfNumber.poll();
+			}
+		}
+		int a =0;
 	}
-	
 }
