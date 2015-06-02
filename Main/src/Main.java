@@ -1,7 +1,7 @@
 // UVa 579 Clock Hands
-// Current Status: Accepted|Pending|TooSlow
-// Last Submitted: 
-// Run Time: 
+// Current Status: Accepted
+// Last Submitted: 2015-06-02 06:43:24
+// Run Time: 2.111
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -23,7 +23,14 @@ public class Main {
 			String nextLine;
 			while( ( nextLine = r.readLine() ) != null )
 			{
-				w.write(nextLine);
+				if(nextLine.equals("0:00"))
+					break;
+				String[] args = nextLine.trim().split(":");
+				// degree doubled to accommondate 0.5
+				int degree = Math.abs(Integer.parseInt(args[0])*60 - Integer.parseInt(args[1])*11);
+				degree =  degree % 720;
+				degree = degree > 360 ? 720 - degree : degree;
+				w.write( String.format("%.3f",((double)degree)/2) + "\n");
 			}
 			r.close();
 			w.close();
