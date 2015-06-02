@@ -1,7 +1,7 @@
-// UVa <ID> <Name> 
-// Current Status: Accepted|Pending|TooSlow
-// Last Submitted: 
-// Run Time: 
+// UVa 575 Skew Binary
+// Current Status: Accepted
+// Last Submitted: 2015-06-02 05:45:42
+// Run Time: 0.119
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -23,7 +23,17 @@ public class Main {
 			String nextLine;
 			while( ( nextLine = r.readLine() ) != null )
 			{
-				w.write(nextLine);
+				if(nextLine.equals("0"))
+					break;
+				long sum = 0;
+				long sub = 0;
+				for(int i=0 ; i<nextLine.length() ; i++) {
+					sum += nextLine.charAt(i)-'0';
+					sub += nextLine.charAt(i)-'0';
+					sum *= 2;
+				}
+				sum -= sub;
+				w.write(sum+"\n");
 			}
 			r.close();
 			w.close();
