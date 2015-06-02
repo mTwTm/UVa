@@ -1,4 +1,4 @@
-// UVa <ID> <Name> 
+// UVa 579 Clock Hands
 // Current Status: Accepted|Pending|TooSlow
 // Last Submitted: 
 // Run Time: 
