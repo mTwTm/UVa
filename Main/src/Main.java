@@ -1,43 +1,42 @@
-// UVa <ID> <Name> 
-// Current Status: Accepted|Pending|TooSlow
-// Last Submitted: 
-// Run Time: 
+// UVa 694 The Collatz Sequence
+// Current Status: Accepted
+// Last Submitted: 2015-06-02 12:37:13
+// Run Time: 1.473
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+import java.util.Scanner;
 
-public class Main {
-	
-	private BufferedReader r; 
-	private BufferedWriter w;
-	
-	private void run(){
 
-		try{
+class Main {
 
-			r = new BufferedReader(new InputStreamReader(System.in, "ISO-8859-1"));
-			w = new BufferedWriter(new OutputStreamWriter(System.out, "ISO-8859-1"));
-			String nextLine;
-			while( ( nextLine = r.readLine() ) != null )
-			{
-				w.write(nextLine);
-			}
-			r.close();
-			w.close();
-		}
-		catch(IOException ex)
-		{
-			//Nothing to do
-		}
-		
-	}
-	
 	public static void main(String[] args) {
-		Main myself = new Main();
-		myself.run();
+		Scanner s;
+		s = new Scanner(System.in);
+		int caseCounter = 1;
+		while(s.hasNextInt())
+		{
+			int a = s.nextInt();
+			int l = s.nextInt();
+			if(a==-1&&l==-1)
+				break;
+			int originalA = a;
+			int counter = 1;
+			while(true)
+			{
+				if(a==1)
+					break;
+				if(a%2==1&&a>715827882)
+					break;
+				if(a%2==1&&a*3+1>l)
+					break;
+				if(a%2==0)
+					a = a/2;
+				else
+					a = a*3+1;
+				counter++;
+			}
+			System.out.println("Case "+caseCounter+": A = "+originalA+", limit = "+l+", number of terms = "+counter);
+			caseCounter++;
+		}
+		s.close();
 	}
-	
 }
