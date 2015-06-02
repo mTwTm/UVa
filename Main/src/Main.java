@@ -1,43 +1,46 @@
-// UVa <ID> <Name> 
-// Current Status: Accepted|Pending|TooSlow
-// Last Submitted: 
-// Run Time: 
+// UVa 674 Coin Change
+// Current Status: Accepted
+// Last Submitted: 2015-06-02 12:23:49
+// Run Time: 2.292
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+import java.util.Scanner;
 
-public class Main {
-	
-	private BufferedReader r; 
-	private BufferedWriter w;
-	
-	private void run(){
+class Main {
 
-		try{
-
-			r = new BufferedReader(new InputStreamReader(System.in, "ISO-8859-1"));
-			w = new BufferedWriter(new OutputStreamWriter(System.out, "ISO-8859-1"));
-			String nextLine;
-			while( ( nextLine = r.readLine() ) != null )
-			{
-				w.write(nextLine);
-			}
-			r.close();
-			w.close();
-		}
-		catch(IOException ex)
-		{
-			//Nothing to do
-		}
-		
-	}
-	
 	public static void main(String[] args) {
-		Main myself = new Main();
-		myself.run();
+		Scanner s;
+		s = new Scanner(System.in);
+		final int maxInput = 7489/5;
+		final int[] coins = {1,5,10,25,50};
+		int[][] ways = new int[maxInput+1][coins.length];
+		ways[0][0] = 1;
+		ways[0][1] = 0;
+		ways[0][2] = 0;
+		ways[0][3] = 0;
+		ways[0][4] = 0;
+		for(int i=1;i<=maxInput;i++)
+		{
+			ways[i][0] = 1;
+			for(int coinType=1;coinType<coins.length;coinType++)
+			{
+				for(int coinCount=1;coinCount*coins[coinType]<=i*5;coinCount++)
+				{
+					for(int l=0;l<coinType;l++)
+						ways[i][coinType] += ways[i-coins[coinType]/5*coinCount][l];
+				}
+			}
+		}
+		while(s.hasNext())
+		{
+			int next = s.nextInt();
+			int sum=0;
+			for(int i=0;i<coins.length;i++)
+			{
+				sum+=ways[next/5][i];
+			}
+			System.out.println(sum);
+		}
+		s.close();
 	}
-	
+
 }
