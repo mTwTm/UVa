@@ -1,7 +1,7 @@
 // UVa 492 Pig-Latin
-// Current Status: Accepted|Pending|TooSlow
-// Last Submitted: 
-// Run Time: 
+// Current Status: Accepted
+// Last Submitted: 2016-02-13 09:21:58 
+// Run Time: 0.179
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -17,11 +17,23 @@ public class Main {
 	private BufferedWriter w;
 
 	private boolean isVowel(char c) {
-		if(c=='a'||c=='e'||c=='i'||c=='o'||c=='u')
+		if(c=='a'||c=='e'||c=='i'||c=='o'||c=='u') {
 			return true;
-		else if(c=='A'||c=='E'||c=='I'||c=='O'||c=='U')
+		} else if(c=='A'||c=='E'||c=='I'||c=='O'||c=='U') {
 			return true;
-		return false;
+		} else {
+			return false;
+		}
+	}
+	
+	private boolean isLetter(int c) {
+		if ( c >= 'a' && c <= 'z' ) {
+			return true;
+		} else if ( c >= 'A' && c <= 'Z' ) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	private void run(){
@@ -31,24 +43,23 @@ public class Main {
 		try{
 			r = new BufferedReader(new InputStreamReader(System.in, "ISO-8859-1"));
 			w = new BufferedWriter(new OutputStreamWriter(System.out, "ISO-8859-1"));
-			String nextLine;
-			while( ( nextLine = r.readLine() ) != null )
-			{
-				int begin = 0; 
-				Matcher matcher = Pattern.compile("[a-zA-Z]+").matcher(nextLine);
-				while(matcher.find())
-				{
-					StringBuilder word = new StringBuilder(matcher.group());
+			int nextChar;
+			while( ( nextChar = r.read() ) != -1 ) {
+				if(isLetter(nextChar)) {
+					StringBuilder word = new StringBuilder(""+(char)nextChar);
+					while(isLetter(nextChar = r.read())) {
+						word.append((char)nextChar);
+					}
 					if(!isVowel(word.charAt(0))) {
 						word.append(word.charAt(0));
 						word.replace(0, 1, "");
 					}
 					word.append("ay");
-					w.write(nextLine.substring(begin, matcher.start()));
-					begin = matcher.end();
 					w.write(word.toString());
+					w.write(nextChar);
+				} else {
+					w.write(nextChar);
 				}
-				w.write(nextLine.substring(begin, nextLine.length())+"\n");
 			}
 			r.close();
 			w.close();
