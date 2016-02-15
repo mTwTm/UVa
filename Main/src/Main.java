@@ -1,7 +1,7 @@
-// UVa <ID> <Name> 
-// Current Status: Accepted|Pending|TooSlow
-// Last Submitted: 
-// Run Time: 
+// UVa 913 Joana and the Odd Numbers
+// Current Status: Accepted
+// Last Submitted: 2016-02-15 15:47:44
+// Run Time: 0.042
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -23,7 +23,11 @@ public class Main {
 			String nextLine;
 			while( ( nextLine = r.readLine() ) != null )
 			{
-				w.write(nextLine);
+				int nextLength = Integer.parseInt(nextLine);
+				long nextIndex = ( nextLength + 1 ) / 2;
+				long rightMost = 1 + 2 * (nextIndex - 1) + 2 * nextIndex * (nextIndex-1);
+				long sum = ( rightMost - 2 ) * 3;
+				w.write(sum+"\n");
 			}
 			r.close();
 			w.close();
