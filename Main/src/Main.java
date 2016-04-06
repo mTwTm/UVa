@@ -1,7 +1,7 @@
-// UVa <ID> <Name> 
-// Current Status: Accepted|Pending|TooSlow
-// Last Submitted: 
-// Run Time: 
+// UVa 11150 Cola
+// Current Status: Accepted
+// Last Submitted: 2016-04-06 15:02:56
+// Run Time: 0.040
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -18,7 +18,20 @@ public class Main {
 			BufferedWriter w = new BufferedWriter(new OutputStreamWriter(System.out, "ISO-8859-1"));
 			String nextLine;
 			while( ( nextLine = r.readLine() ) != null ) {
-				w.write(nextLine);
+				int full = Integer.parseInt(nextLine);
+				int empty = 0;
+				int sum=0;
+				do {
+					sum += full;
+					empty += full % 3;
+					full = full / 3;
+					full += empty / 3;
+					empty = empty % 3;
+				} while(full!=0);
+				if(empty==2) {
+					sum++;
+				}
+				w.write(sum+"\n");
 			}
 			r.close();
 			w.close();
