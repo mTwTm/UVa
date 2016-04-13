@@ -1,7 +1,7 @@
-// UVa <ID> <Name> 
-// Current Status: Accepted|Pending|TooSlow
-// Last Submitted: 
-// Run Time: 
+// UVa 10696 f91
+// Current Status: Accepted
+// Last Submitted: 2016-04-13 03:27:57
+// Run Time: 0.180
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -16,9 +16,17 @@ public class Main {
 
 			BufferedReader r = new BufferedReader(new InputStreamReader(System.in, "ISO-8859-1"));
 			BufferedWriter w = new BufferedWriter(new OutputStreamWriter(System.out, "ISO-8859-1"));
-			String nextLine;
-			while( ( nextLine = r.readLine() ) != null ) {
-				w.write(nextLine);
+			while(true) {
+				int next = Integer.parseInt(r.readLine());
+				if( next == 0 ) {
+					break;
+				} else {
+					if( next >= 101 ) {
+						w.write("f91(" + next + ") = " + (next-10) + "\n");
+					} else {
+						w.write("f91(" + next + ") = " + 91 + "\n");
+					}
+				}
 			}
 			r.close();
 			w.close();
