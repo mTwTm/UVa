@@ -1,6 +1,6 @@
 // UVa 10591 Happy Number
 // Current Status: Accepted
-// Last Submitted: 2016-04-17 08:37:12
+// Last Submitted: 2016-04-17 08:49:04
 // Run Time: 0.070
 
 import java.io.BufferedReader;
@@ -62,9 +62,9 @@ public class Main {
 			BufferedReader r = new BufferedReader(new InputStreamReader(System.in, "ISO-8859-1"));
 			BufferedWriter w = new BufferedWriter(new OutputStreamWriter(System.out, "ISO-8859-1"));
 			int caseNum = Integer.parseInt(r.readLine());
+			mapping = new HashMap<>();
 			for ( int i=0 ; i<caseNum ; i++) {
 				int next = Integer.parseInt(r.readLine());
-				mapping = new HashMap<>();
 				if(calVal(next)) {
 					w.write("Case #" + (i+1) + ": " + next + " is a Happy number.\n");
 				} else {
