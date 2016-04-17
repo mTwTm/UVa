@@ -5,6 +5,42 @@ import java.util.List;
  * Created by mtwtm on 2016/3/21.
  */
 public class Helper {
+    private class Combination {
+        private int[] chosen;
+        private int size;
+        Combination(int n, int r) {
+            chosen = new int[r];
+            size = n;
+            for(int i=0 ; i<r ; i++) {
+                chosen[i] = i;
+            }
+        }
+
+        public int[] get() {
+            return chosen;
+        }
+
+        public void next() {
+            for(int i=chosen.length-1 ; i>=0 ; i--) {
+                if(chosen[i]!=size-(chosen.length-i)) {
+                    chosen[i]++;
+                    for(int j=i+1 ; j<chosen.length ; j++) {
+                        chosen[j] = chosen[j-1]+1;
+                    }
+                    break;
+                }
+            }
+        }
+
+        public boolean hasNext() {
+            for(int i=chosen.length-1 ; i>=0 ; i--) {
+                if(chosen[i]!=size-(chosen.length-i)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+    }
     private class Permutation {
         private List<Integer> list;
         private boolean isIncrease;
