@@ -1,7 +1,7 @@
-// UVa <ID> <Name> 
-// Current Status: Accepted|Pending|TooSlow
-// Last Submitted: 
-// Run Time: 
+// UVa 10469 To Carry or not to Carry
+// Current Status: Accepted
+// Last Submitted: 0.040
+// Run Time: 2016-04-17 13:51:25
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -18,7 +18,10 @@ public class Main {
 			BufferedWriter w = new BufferedWriter(new OutputStreamWriter(System.out, "ISO-8859-1"));
 			String nextLine;
 			while( ( nextLine = r.readLine() ) != null ) {
-				w.write(nextLine);
+				String[] args = nextLine.split("\\s+");
+				long a = Long.parseLong(args[0]);
+				long b = Long.parseLong(args[1]);
+				w.write( (a^b) + "\n");
 			}
 			r.close();
 			w.close();
