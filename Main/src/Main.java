@@ -1,7 +1,7 @@
-// UVa <ID> <Name> 
-// Current Status: Accepted|Pending|TooSlow
-// Last Submitted: 
-// Run Time: 
+// UVa 10499 The Land of Justice
+// Current Status: Accepted
+// Last Submitted: 2016-04-17 13:42:55
+// Run Time: 0.090
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -18,7 +18,18 @@ public class Main {
 			BufferedWriter w = new BufferedWriter(new OutputStreamWriter(System.out, "ISO-8859-1"));
 			String nextLine;
 			while( ( nextLine = r.readLine() ) != null ) {
-				w.write(nextLine);
+				long nextValue = Long.parseLong(nextLine);
+				if(nextValue<0) {
+					break;
+				} else {
+					long ans;
+					if(nextValue == 1) {
+						ans = 0;
+					} else {
+						ans = nextValue * 25;
+					}
+					w.write(ans+"%\n");
+				}
 			}
 			r.close();
 			w.close();
