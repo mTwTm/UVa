@@ -1,7 +1,7 @@
-// UVa <ID> <Name> 
-// Current Status: Accepted|Pending|TooSlow
-// Last Submitted: 
-// Run Time: 
+// UVa 10346 Peter's Smokes
+// Current Status: Accepted
+// Last Submitted: 2016-05-04 15:28:16
+// Run Time: 0.040
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -18,7 +18,19 @@ public class Main {
 			BufferedWriter w = new BufferedWriter(new OutputStreamWriter(System.out, "ISO-8859-1"));
 			String nextLine;
 			while( ( nextLine = r.readLine() ) != null ) {
-				w.write(nextLine);
+				String[] args = nextLine.split("\\s+");
+				int completeCigaretteCount = Integer.parseInt(args[0]);
+				int buttNeededForComplete = Integer.parseInt(args[1]);
+				int buttCigaretteCount = 0;
+				int sum=0;
+				do {
+					sum += completeCigaretteCount;
+					buttCigaretteCount += completeCigaretteCount % buttNeededForComplete;
+					completeCigaretteCount = completeCigaretteCount / buttNeededForComplete;
+					completeCigaretteCount += buttCigaretteCount / buttNeededForComplete;
+					buttCigaretteCount = buttCigaretteCount % buttNeededForComplete;
+				} while(completeCigaretteCount!=0);
+				w.write(sum+"\n");
 			}
 			r.close();
 			w.close();
