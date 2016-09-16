@@ -1,7 +1,7 @@
-// UVa <ID> <Name> 
-// Current Status: Accepted|Pending|TooSlow
-// Last Submitted: 
-// Run Time: 
+// UVa 10302 Summation of Polynomials
+// Current Status: Accepted
+// Last Submitted: 2016-09-16 12:31:17
+// Run Time: 0.040
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -18,7 +18,8 @@ public class Main {
 			BufferedWriter w = new BufferedWriter(new OutputStreamWriter(System.out, "ISO-8859-1"));
 			String nextLine;
 			while( ( nextLine = r.readLine() ) != null ) {
-				w.write(nextLine);
+				long i = Integer.valueOf(nextLine.trim());
+				w.write(i*i*(i+1)*(i+1)/4+"\n");
 			}
 			r.close();
 			w.close();
