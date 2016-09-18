@@ -1,7 +1,7 @@
-// UVa <ID> <Name> 
-// Current Status: Accepted|Pending|TooSlow
-// Last Submitted: 
-// Run Time: 
+// UVa 10110 Light, more light
+// Current Status: Accepted
+// Last Submitted: 2016-09-18 08:51:42
+// Run Time: 0.110
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -11,6 +11,8 @@ import java.io.OutputStreamWriter;
 
 public class Main {
 
+	private final static int LARGEST_PRIME_NEEDED = 1<<16;
+
 	private void run() {
 		try {
 
@@ -18,7 +20,12 @@ public class Main {
 			BufferedWriter w = new BufferedWriter(new OutputStreamWriter(System.out, "ISO-8859-1"));
 			String nextLine;
 			while( ( nextLine = r.readLine() ) != null ) {
-				w.write(nextLine);
+				long num = Long.valueOf(nextLine.trim());
+				if(num==0) {
+					break;
+				}
+				long root = (long)Math.sqrt(num);
+				w.write(root*root==num ? "yes\n" : "no\n");
 			}
 			r.close();
 			w.close();
