@@ -1,7 +1,7 @@
-// UVa <ID> <Name> 
-// Current Status: Accepted|Pending|TooSlow
-// Last Submitted: 
-// Run Time: 
+// UVa 10071 Back to High School Physics
+// Current Status: Accepted
+// Last Submitted: 2016-09-18 14:52:10
+// Run Time: 0.280
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -18,7 +18,8 @@ public class Main {
 			BufferedWriter w = new BufferedWriter(new OutputStreamWriter(System.out, "ISO-8859-1"));
 			String nextLine;
 			while( ( nextLine = r.readLine() ) != null ) {
-				w.write(nextLine);
+				String[] values = nextLine.trim().split("\\s+");
+				w.write(2*Integer.valueOf(values[0])*Integer.valueOf(values[1])+"\n");
 			}
 			r.close();
 			w.close();
