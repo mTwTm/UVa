@@ -1,7 +1,7 @@
-// UVa <ID> <Name> 
-// Current Status: Accepted|Pending|TooSlow
-// Last Submitted: 
-// Run Time: 
+// UVa 10079 Pizza Cutting
+// Current Status: Accepted
+// Last Submitted: 2016-09-18 14:25:23
+// Run Time: 0.070
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -18,7 +18,11 @@ public class Main {
 			BufferedWriter w = new BufferedWriter(new OutputStreamWriter(System.out, "ISO-8859-1"));
 			String nextLine;
 			while( ( nextLine = r.readLine() ) != null ) {
-				w.write(nextLine);
+				int num = Integer.parseInt(nextLine.trim());
+				if ( num < 0 ) {
+					break;
+				}
+				w.write(((long)num*(num+1)/2+1)+"\n");
 			}
 			r.close();
 			w.close();
