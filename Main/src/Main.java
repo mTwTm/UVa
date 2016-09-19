@@ -1,7 +1,7 @@
-// UVa <ID> <Name> 
-// Current Status: Accepted|Pending|TooSlow
-// Last Submitted: 
-// Run Time: 
+// UVa 10055 Hashmat the Brave Warrior
+// Current Status: Accepted
+// Last Submitted: 2016-09-19 14:43:30
+// Run Time: 0.510
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -18,7 +18,8 @@ public class Main {
 			BufferedWriter w = new BufferedWriter(new OutputStreamWriter(System.out, "ISO-8859-1"));
 			String nextLine;
 			while( ( nextLine = r.readLine() ) != null ) {
-				w.write(nextLine);
+				String[] values = nextLine.trim().split("\\s+");
+				w.write(Math.abs(Long.valueOf(values[1]) - Long.valueOf(values[0])) + "\n");
 			}
 			r.close();
 			w.close();
